@@ -3,8 +3,9 @@ $("#btn").on("click", function(){
   let player1Val = $("#player1").val();
   let player2Val = $("#player2").val();
 
-  const player1 = [];
-  const player2 = [];
+  const players = [];
+  const outputEl = $("#output");
+
 
   const loadPlayer1 = () => {
       return new Promise((resolve, reject) => {
@@ -22,11 +23,15 @@ $("#btn").on("click", function(){
   };
 
   Promise.all([loadPlayer1(), loadPlayer2()])
-          .then((allData) => {
-              console.log("allData", allData);
-          }).catch((errors) =>{
-            console.log(errors);
-  });
+          .then((result) => {
+            // console.log("result", result);
+            result.forEach((xhrResult) => {
+              players.push(xhrResult);
+            });
+            // console.log(players)
+          }).catch((error) => {
+           alert("please enter a treehouse profile")
+          })
 
 
 });//closing click event
