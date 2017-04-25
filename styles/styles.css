@@ -1,3 +1,12 @@
 body{
-  background-color: aquamarine;
+  background-color: mediumseagreen;
+}
+
+.container {
+  display: flex;
+}
+
+.image{
+  display: inline-flex;
+  max-width: 60%;
 }
